@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulário</title>
+        <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+    </head>
+    <body>
+        <!--Bloco pricipal-->
+        <main>
+             <!--Div título formulário-->
+            <div id="id_tittle-form" class="car-form">
+                <h1>FORMULÁRIO DE LANÇAMENTO</h1>
+            </div>
+            <!--Fim Div título formulário-->
+
+            <!--Div principal/pai de todas do formulário-->
+            <div id="id_div-container">
+                <!--Div que contém todos os elementos necessáriso para preencher o formulário - Div da esquerda(toda a coluna)-->
+                <div id="id_div-column1" class="div-column">
+                    <!--Div de input radio que contém os "tipos de veículos"-->
+                    <div id="id_div-type-car" class="campos-radios">
+                        <label>Tipo:</label>
+                        <div id="id_type" class="main-radios-T">  
+                            <div id="id_interno-type-1" class="inside-div-radio-T" >
+                                <div><spam class="spam-text">Passeio</spam></div>
+                                <div><input type="radio" id="id_input-type-1" name="radio-type" class="radio-check-P" value="Passeio"/></div>
+                            </div>
+                            <div id="id_interno-type-2" class="inside-div-radio-T">
+                                <div><spam class="spam-text">Utilitário</spam></div>
+                                <div><input type="radio" id="id_input-type-2" name="radio-type"  class="radio-check-P" value="Utilitario"/></div>
+                            </div>
+                            <div id="id_interno-type-3" class="inside-div-radio-T">
+                                <div><spam class="spam-text">Escolar</spam></div>
+                                <div><input type="radio" id="id_input-type-3" name="radio-type"  class="radio-check-P" value="Escolar"/></div>
+                            </div>
+                            <div id="id_interno-type-4" class="inside-div-radio-T">
+                                <div><spam class="spam-text">Ônibus</spam></div>
+                                <div><input type="radio" id="id_input-type-4" name="radio-type"  class="radio-check-P" value="Onibus"/></div>
+                            </div>
+                            <div id="id_interno-type-5" class="inside-div-radio-T">
+                                <div><spam class="spam-text">Belico</spam></div>
+                                <div><input type="radio" id="id_input-type-5" name="radio-type"  class="radio-check-P" value="Belico"/></div>
+                            </div>
+                        </div>
+                    </div>
+                     <!--Fim Div de input radio que contém os "tipos de veículos"-->
+
+                     <!--Div input "modelo carro"-->
+                    <div id="id_div-template-car" class="campos-input">
+                        <label for="id_input-template-car">Modelo</label>
+                        <input type="text" id="id_input-template-car" class="inputs" maxlength="15" value=""/>
+                    </div>
+                    <!--Fim Div input "modelo carro"-->
+
+                    <!--Div input "fabricante"-->
+                    <div id="id_div-fabricante-car" class="campos-input">
+                        <label for="id_input-fabricante-car">Fabricante</label>
+                        <input type="text" id="id_input-fabricante-car" class="inputs" maxlength="15" value=""/>
+                    </div>
+                    <!--Fim Div input "fabricante"-->
+
+                    <!--Campo seleção(select) "total de passageiros"-->
+                    <div id="id_div-passageiro-car" class="campos-input">
+                        <label for="id_selecion-passageiro">Passageiros</label>
+                        <select name="selection-passageiros" id="id_selecion-passageiro" class="inputs">
+                            <option value="" id="opt-passenger-vazio" class="option-passenger"></option>
+                            <option value="2" id="opt-passenger-2" class="option-passenger">2(dois)</option>
+                            <option value="5" id="opt-passenger-5" class="option-passenger">5(cinco)</option>
+                            <option value="8" id="opt-passenger-8" class="option-passenger">8(oito)</option>
+                            <option value="15" id="opt-passenger-15" class="option-passenger">15(quinze)</option>
+                            <option value="60+" id="opt-passenger-60" class="option-passenger">60+(sessenta ou mais)</option>
+                        </select>
+                    </div>
+                    <!--Fim Campo seleção(select) "passageiros"-->
+
+                    <!--Div input "cor"-->
+                    <div id="id_div-cor-car" class="campos-input">
+                        <label for="id_input-cor-car">Cor</label>
+                        <input type="text" id="id_input-cor-car" class="inputs" maxlength="15"/>
+                    </div>
+                    <!--Fim Div input "cor"-->
+
+                    <!--Div de input radio que contém os "potência do motor"-->
+                    <div id="id_div-motor-car" class="campos-radios">
+                        <label>Motor:</label>
+                        <div id="id_radio" class="main-radios">
+                            <div id="id_interno-radio-128CV" class="inside-div-radio1-M">
+                                <div><spam class="spam-text">128CV</spam></div>
+                                <div><input type="radio" id="id_input-template-check128" name="radio-motor" class="radio-check-P" value="128CV" /></div>
+                            </div>
+                            <div id="id_interno-radio-140CV" class="inside-div-radio-M">
+                                <div><spam class="tspam-ext">140CV</spam></div>
+                                <div><input type="radio" id="id_input-template-check140" name="radio-motor"  class="radio-check-P" value="140CV"/></div>
+                            </div>
+                            <div id="id_interno-radio-180CV" class="inside-div-radio-M">
+                                <div><spam class="spam-text">180CV</spam></div>
+                                <div><input type="radio" id="id_input-template-check180" name="radio-motor"  class="radio-check-P" value="180CV"/></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Fim Div de input radio que contém os "potência do motor"-->
+
+                    <!--Div de input radio que contém os "total de portas no carro"-->
+                    <div id="id_div-doors-car" class="campos-radios">
+                        <label>Portas:</label>
+                        <div id="id_doors" class="main-radios">  
+                            <div id="id_interno-doors-2" class="inside-div-radio1-D">
+                                <div><spam class="spam-num">2</spam></div>
+                                <div><input type="radio" id="id_input-doors-2" name="radio-doors" class="radio-check-D" value="2"/></div>
+                            </div>
+                            <div id="id_interno-doors-3" class="inside-div-radio-D">
+                                <div><spam class="spam-num">3</spam></div>
+                                <div><input type="radio" id="id_input-doors-3" name="radio-doors"  class="radio-check-D" value="3"/></div>
+                            </div>
+                            <div id="id_interno-doors-4" class="inside-div-radio-D">
+                                <div><spam class="spam-num">4</spam></div>
+                                <div><input type="radio" id="id_input-doors-4" name="radio-doors"  class="radio-check-D" value="4"/></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Fim Div de input raio que contém os "total de portas no carro"-->
+
+                    <!--Campo seleção(select) "informação de blindado ou não"-->
+                    <div id="id_div-blindado-car" class="campos-input">
+                        <label>Blindado</label>
+                        <select name="selection-Blindagem" id="id_selecion-blindagem" class="inputs">
+                            <option value=""></option>
+                            <option value="Sim">Sim</option>
+                            <option value="Não">Não</option>
+                        </select>
+                    </div>
+                    <!--Fim Campo seleção(select) "informação de blindado ou não"-->
+
+                    <!--Div input "valor"-->
+                    <div id="id_div-price-car" class="campos-input">
+                        <label for="id_input-price-car">Valor(R$)</label>
+                        <input type="number" id="id_input-price-car" class="inputs"/>
+                    </div>
+                    <!--Fim Div input "valor"-->
+
+                    <!--Div que contém os botões "Lançar" e "Limpar"-->
+                    <div id="id_div-buttons" class="div-button">
+                            <button type="button" id="id_button-launch" class="button">Lançar</button>
+                            <button type="button" id="id_button-clear" class="button">Limpar</button>
+                    </div>
+                    <!--Fim Div que contém os botões "Lançar" e "Limpar"-->
+                </div>
+                <!--Fim Div que contém todos os elementos necessáriso para preencher o formulário - Div da esquerda(toda a coluna)-->
+
+                <!--Div que recebe os lançamentos-->
+                <div id="id_div-column2" class="div-column2">
+                    <div id="id_tittle-lancamentos" class="subTitle">
+                        <h2>FORMULÁRIO DE LANÇAMENTO</h2>
+                    </div>
+                    <div id="id_lancamentos" class="div-lancamentos">
+                        <!--Aqui serão criados as DIV através do JS-->
+                        
+                    </div>
+                    <div id="id_button-remove" class="div-button-remove-all">
+                        <button type="button " id="id_button_remove" class="button">Remover Todos</button>
+                    </div>
+                    
+                </div>
+                 <!--Div que recebe os lançamentos-->
+
+            </div>
+             <!--Fim Div principal/pai de todas do formulário-->
+        </main>
+        <!--Fim bloco pricipal-->
+
+        <!--Script JavaScript-->
+        <script src="fileJS.js"></script>
+    </body>
+</html>
