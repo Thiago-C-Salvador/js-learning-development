@@ -1,5 +1,3 @@
-
-//Class(objeto) pai
 class Belicos{
     constructor(pType,pModel,pFabricante,pColor,pBlindado,pPrice){
         this.type=pType
