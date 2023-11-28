@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="Chrome">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');/*Pegando estilo, no caso de fonte, em local remoto*/
+        </style> 
+        <link rel="stylesheet" href="style.css">
+        <title>Gerar Senha</title>
+    </head>
+    <body>
+        <main> <!--Bloco pincipal-->
+            <section class="hero"> <!--Bloco superior da página-->
+                <h1 class="title">Gerador de Senha</h1>
+                <p class="subTitle">Utilize gerador online de senhas para criar uma senha forte e segura</p>
+            </section>
+
+            <section class="box"> <!--Seção campo input senha-->
+                <div class="password">
+                    <div class="text"> 
+                        <h3 class="title-fields-login"> A sua nova senha</h3>
+                        <!--Input que recebe a senha gerada-->
+                        <input type="text" name="name-password" id="id-password" maxlength="48">
+                    </div >  
+                    <div class="action"> <!--Bloco dos botões copiar e recarregar com uso de img-->
+                        <button onclick="copy()"><img class="senha" src="assets/img/copy.svg"  alt="Copy password"></button>
+                        <button onclick="generatePassword()"><img class="senha" src="assets/img/renew.svg" alt="Reload for new password"></button>
+                    </div>
+                </div>
+                <div class="securyt-indicator"><!--Bloco com configuração estática para criar tamanho máximo da barra com efeito de nível de segurança da senha. Barra abaixo do input="text" da senha-->
+                    <div    id="securyt-indicator-bar"
+                            class="bar"></div> <!--Bloco para criar efeito de nível de segurança da senha. Barra abaixo do input="text" da senha -->
+                    </div>
+                </div>
+             </section>
+
+             <section class="box customize"> <!--Seção filtro de força da senha-->
+                <h3 class="title-fields-login"> Personalizar</h3>
+                <div class="actions"> <!--Bloco de camada das ações de animação do aumento e diminuimento da da senha-->
+                    <div class="password-lenght">
+                        <p style="margin-left: 15px" class="parag-1">Tamanho:<span id="password-lenght-text" >16</span></p>
+                        <input  type="range" name="name-password-length"id="id-password-lenght"  class="slider" value="16" min="8" max="48">
+                         <!--Input acima que cria o efeito da barra de crescimento-->
+
+                         <!--Abaixo o texto(spam que muda o texto de acordo com o nível de segurança da senha)-->
+                        <p style="margin-left: 15px" class="parag-2">Senha: 
+                            <span   id="password-level"
+                                    class="password-level">Meio Forte</span>
+                        </p>
+                    </div>
+
+                    <div class="config">  <!--Bloco de filtragem de caraceteres da senha-->    
+
+                        <label class="checkbox">
+                            <span class="text">Maiúscula</span>
+                            <input  id="UpperLetter-check" type="checkbox"
+                                    value="very-strong" checked>
+                            <span class="checkmark"></span> <!--elemento par fazer jogada gráfica no checkbox-->
+                        </label>
+
+                        <label class="checkbox">
+                            <span class="text">Números</span>
+                            <input  id="number-check" type="checkbox"
+                                    value="strong" checked>
+                            <span class="checkmark"></span><!--elemento par fazer jogada gráfica no checkbox-->
+                        </label>
+
+                        <label class="checkbox">
+                            <span class="text">Símbolos</span>
+                            <input  id="symbol-check" type="checkbox"
+                                    value="weak" checked>
+                            <span class="checkmark"></span><!--elemento par fazer jogada gráfica no checkbox-->
+                        </label>
+                    </div>
+                </div>
+
+             </section>
+             
+            <div class="submit"> <!--Botão padrão para copiar senha-->
+                <button id="id-button-copy-password">Copiar senha</button>
+            </div>
+        </main>
+        
+        <script>
+
+            //Variável que recebe o valor do input 'ranger' (bolinha e barra) que controla o tamanho (quantidade) de dígitos que a senha terá.
+             let passwordLenght = 16//document.querySelector("#id-password-lenght").value
+   
+            //referenciando elementos do DOM através das variáveis para poder se trabalhar e alterar tais elementos de forma dinânmica
+            const inputEl = document.querySelector("#id-password")
+            const upperCasePassword = document.querySelector("#UpperLetter-check")
+            const numberPassword = document.querySelector("#number-check")
+            const symbolPassword = document.querySelector("#symbol-check")
+            const securityIndicatorBar = document.querySelector("#securyt-indicator-bar")
+            const passwordLevel=document.querySelector("#password-level")
+            const checkbox=document.querySelectorAll("input[type='checkbox']")
+
+            //Function para gerar senha rondomicamente
+            function generatePassword(){
+
+                //variável e condições para criar as senhas rondomicamente
+                let chars = "abcdefghijklmnopqrstuvxz";
+                const upperCaseChars = "ABCDEFGHIJKLMNOPQRSTUVXZ";
+                const numberChars = "0126456789";
+                const symbolChars = "@#!?_-%";
+
+                if (upperCasePassword.checked){
+                    chars += upperCaseChars   
+                }
+                if (numberPassword.checked){
+                    chars += numberChars
+                }
+                if (symbolPassword.checked){
+                    chars += symbolChars
+                }
+                
+                let password = "";
+                for (let i = 0;  i < passwordLenght; i++){
+                    //metódos (Math.floor e Marth.random) para arrendodar a quantidade de caracteres que a senha tera, en caso de o resultado ser um número flutuante(float)
+
+                    //abaixo um método complexo: Match.random() mutiplicarar um número flutuante entre 0,1000 e 0,9999 vezes(x) o chars.lenght(que vai até 48 no máximo), gerando assim um senha baseada nesse cálculo, onde um certo grupo de caracteres juntos é representado por um determinado valor x
+                    //o método "floor" irá arrendodar o número um inteiro, no caso sempre o inteiro menor. Exemplo: 45,90: será 45; 34,333: será 33
+                    const randomDigit = Math.floor(Math.random() * chars.length)
+                    /* então para se chegar ao valor máximo de caracteres as enha poderá ter, se faz a expressão abaixo: onde o método "substring" irá pegar o (1ºvalor, e fará o calcúlo, no caso o primeiro valor é o valor cheio da variável 'ranfomDigt', e somará o valor cheio + 1, Assim permitindo o password atingir a quantidade de caracteres máximo que pode ter. já que a expressão (Math.random() * chars.length), porém ela não permite chegar ao valor máximo, pois 0,9999*48 = 47,952; como o método floor da classe Math arredonda o número par um inteiro menor mais próximo do resultado, virá 47. Por isso a importância dessa expressão abaixo*/
+                    password +=  chars.substring(randomDigit, randomDigit+1)
+                }
+                //FIM processo variável senha
+                //console.log(password)
+                correctPasswords(password)
+            }
+
+
+            function continueApp(keyWord){
+                 //console.log(keyWord)
+                inputEl.value=keyWord
+                levelSafety()
+                CalculatePercent()
+                calculateFontSize() 
+            }
+
+            function correctPasswords(generatedPassword){
+            //console.log("Aqui " + generatedPassword)
+
+            /*Bloco de regex para tratamento das senhas. Não permitir, por exemplo, que senha com todos os checbox marcados não imprima senha sem números ou então sem caracteres especiais.
+                OBS: caracteres de letras minúsculas terá em todas*/
+                let allcaracteres=/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])(?:([0-9a-zA-Z$*&@#])){8,}$/;//Regex com todos os tipos de caracteres
+                /*====================================Abaixo são somente senha com duas combinações + as minúsculas====================================*/
+                let symbolAndNumber=/^(?=.*[0-9])(?=.*[a-z])(?=.*[$*&@#])(?:([0-9a-z$*&@#])){8,}$/;//Regex sem conter maiúsculas
+                let capitalLetterAndNumber=/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?:([0-9a-zA-Z])){8,}$/;//Regex sem conter símbolos
+                let capitalLetterAndSymbols=/^(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])(?:([a-zA-Z$*&@#])){8,}$/;//Regex sem conter números
+                /*====================================Abaixo é somente senha com uma combinação + as minúsculas====================================*/
+                let justCapitalLetter=/^(?=.*[a-z])(?=.*[A-Z])(?:([a-zA-Z])){8,}$/;//Regex contendo somente maiúsculas
+                let justNumber=/^(?=.*[0-9])(?=.*[a-z])(?:([0-9a-z])){8,}$/;//Regex contendo somente números
+                let justSymbols=/^(?=.*[a-z])(?=.*[$*&@#])(?:([a-z$*&@#])){8,}$/;//Regex contendo somente símbolos
+                /*====================================Abaixo somente as letras minúsculas====================================*/
+                let lowercaseLetter=/^(?=.*[a-z])(?:[a-z]){8,}$/;//Regex contendo somente símbolos
+                //Fim bloco de regex
+
+                let maiuscula=true
+                let symbol=true
+                let number=true
+                
+                //evento para toda alterecção que ocorrer (gera uma nova senha) verificar o estado de cada checkbox
+                checkbox.forEach((el)=>{
+                    if(el.id===upperCasePassword.id){
+                        if(el.checked===true){
+                            maiuscula=true
+                        }else{
+                            maiuscula=false
+                        }
+                    } 
+
+                    if(el.id===numberPassword.id){
+                        if(el.checked===true){
+                            number=true
+                        }else{
+                            number=false
+                        } 
+
+                    }
+                    
+                    if(el.id===symbolPassword.id){
+                        if(el.checked===true){
+                            symbol=true
+                        }else{
+                            symbol=false
+                        } 
+
+                    }
+                })
+
+                // console.log("Maiúsculas: "+maiuscula)
+                // console.log("Números: "+number)
+                // console.log("Símbolos: "+symbol)
+                // console.log("===========================")
+                // console.log(password)
+
+                //senha com todos caracteres
+                if(maiuscula==true && number==true && symbol==true && allcaracteres.test(generatedPassword)){
+                    continueApp(generatedPassword)
+                //senha sem números letras maiúsculas
+                }else if(maiuscula==false && number==true && symbol==true && symbolAndNumber.test(generatedPassword)){
+                    continueApp(generatedPassword)
+                //senha sem números letras símbolos
+                }else if(maiuscula==true && number==true && symbol==false && capitalLetterAndNumber.test(generatedPassword)){
+                    continueApp(generatedPassword)
+                }else if(maiuscula==true && number==false && symbol==true && capitalLetterAndSymbols.test(generatedPassword)){
+                    continueApp(generatedPassword)
+                }else if(maiuscula==true && number==false && symbol==false && justCapitalLetter.test(generatedPassword)){
+                    continueApp(generatedPassword)
+                }else if(maiuscula==false && number==true && symbol==false && justNumber.test(generatedPassword)){
+                    continueApp(generatedPassword)
+                }else if(maiuscula==false && number==false && symbol==true && justSymbols.test(generatedPassword)){
+                    console.log(generatedPassword)
+                    continueApp(generatedPassword)
+                }else if(maiuscula==false && number==false && symbol==false && lowercaseLetter.test(generatedPassword)){
+                    continueApp(generatedPassword)
+                }else{
+                    generatePassword()
+                }                
+            }                         
+        
+            //função/método para calcular, devido as condições configuradas para geração da senha, o percentual de segurança e, encima desse percentual ,desenvolver todo efeito das proprieddas CSS referente as informções de nível de segurança da senha 
+            function CalculatePercent(){
+                
+                //método para se chegar a percentual do tamanho que a barra de segurança irá ficar(o efeito ocorre através de propriedades do CSS )
+                const percent = Math.round((passwordLenght / 48) * 25) + (upperCasePassword.checked ? 18 : 0 ) + 
+                                          (numberPassword.checked ? 22 : 0 ) + (symbolPassword.checked ? 35 : 0)
+
+                securityIndicatorBar.style.width = `${percent}%`
+                //Operação condicional abiaxo faz o mesmo trabalho da FUNCTION 'leveSafety' de uma forma mais simples
+             /*   if(percent >= 80){
+                    securityIndicatorBar.classList.remove("veryCritical")
+                    securityIndicatorBar.classList.remove("critical")
+                    securityIndicatorBar.classList.remove("medium")
+                    securityIndicatorBar.classList.remove("safe")
+                    securityIndicatorBar.classList.add("verySafe")
+                    document.querySelector("#password-level").innerText = "Muito Forte"
+                    document.querySelector("#password-level").className="password-level-verySafe"
+                    }else if(percent > 65 && percent < 80){
+                    securityIndicatorBar.classList.remove("veryCritical")
+                    securityIndicatorBar.classList.remove("critical")
+                    securityIndicatorBar.classList.remove("medium")
+                    securityIndicatorBar.classList.add("safe")
+                    document.querySelector("#password-level").innerText = "Forte"
+                    document.querySelector("#password-level").className="password-level-safe"
+                    securityIndicatorBar.classList.remove("verySafe")
+                    }else if(percent > 44 && percent < 66){
+                    securityIndicatorBar.classList.remove("veryCritical")
+                    securityIndicatorBar.classList.remove("critical")
+                    securityIndicatorBar.classList.add("medium")
+                    securityIndicatorBar.classList.remove("safe")
+                    securityIndicatorBar.classList.remove("verySafe")
+                    document.querySelector("#password-level").className="password-level-medium"
+                    document.querySelector("#password-level").innerText = "Força Média"
+                }else if(percent > 30  && percent < 45){
+                    securityIndicatorBar.classList.remove("veryCritical")
+                    securityIndicatorBar.classList.add("critical")
+                    securityIndicatorBar.classList.remove("medium")
+                    securityIndicatorBar.classList.remove("safe")
+                    securityIndicatorBar.classList.remove("verySafe")
+                    document.querySelector("#password-level").innerText = "Fraca"
+                    document.querySelector("#password-level").className="password-level-critical"
+                    }else{
+                    securityIndicatorBar.classList.add("veryCritical")
+                    securityIndicatorBar.classList.remove("critical")
+                    securityIndicatorBar.classList.remove("medium")
+                    securityIndicatorBar.classList.remove("safe")
+                    securityIndicatorBar.classList.remove("verySafe")
+                    document.querySelector("#password-level").innerText = "Muito Fraca"
+                    document.querySelector("#password-level").className="password-level-veryCritical"
+                }//Fim da operações condicional*/
+
+                //condição para verificar se a barra abaixo do campo "senha" vai ou nção receber a propriedade CSS que dá o efeito e  evita o transbordo do elemento ao qual ele é filho.
+                if(percent >=100){
+                securityIndicatorBar.classList.add("completed")
+                }else{
+                securityIndicatorBar.classList.remove("completed")   
+                }
+            } 
+            
+            //função/método que altera (gera o efeito) o tamanho da letra a depender de qa=uantos caracteres a senha tem.
+            function calculateFontSize(){
+                if (passwordLenght >=13 && passwordLenght < 23 ){         
+                    inputEl.classList.add("fontSize-x")
+                    inputEl.classList.remove("fontSize-m")
+                    inputEl.classList.remove("fontSize-s")    
+                }
+                else if (passwordLenght >= 23 && passwordLenght < 37 ){        
+                    inputEl.classList.remove("fontSize-x")
+                    inputEl.classList.add("fontSize-m")
+                    inputEl.classList.remove("fontSize-s")    
+                }
+                else if (passwordLenght >= 37 && passwordLenght){
+                    inputEl.classList.remove("fontSize-x")
+                    inputEl.classList.remove("fontSize-m")
+                    inputEl.classList.add("fontSize-s")  
+                }
+                else if (passwordLenght < 13 ) {
+                    inputEl.classList.remove("fontSize-x")
+                    inputEl.classList.remove("fontSize-m")
+                    inputEl.classList.remove("fontSize-s") 
+                     }
+         
+                }
+            
+            //Função responsável por randomicamente alterar e informar o nível de  segurança da senha   
+            function levelSafety(){
+                    //Bloco com nenhum ou apenas um dos filtros marcados com 10 ou menos caracteres
+                    if ((passwordLenght <= 10 && (upperCasePassword.checked == false) && (numberPassword.checked == false) && (symbolPassword.checked == false))){ // Apenas com letra minúsculas e no máximo 10 caracteres
+                        passwordLevel.innerText="Muito Fraca"
+                        securityIndicatorBar.className="bar veryCritical"
+                        passwordLevel.className="password-level-veryCritical"
+                    }
+                    else if ((passwordLenght >= 11 && passwordLenght <= 48 && (upperCasePassword.checked == false) && (numberPassword.checked == false) && (symbolPassword.checked==false))){ // Apenas com letra minúsculas com 11 a 25 caracteres
+                        passwordLevel.innerText="Fraca"
+                        securityIndicatorBar.className="bar critical"
+                        passwordLevel.className="password-level-critical"
+                    }
+                    else if ((passwordLenght <= 10 && upperCasePassword.checked && (numberPassword.checked == false) && (symbolPassword.checked == false))){ // Apenas com letra minúsculas e maiúsculas                   
+                        passwordLevel.innerText="Muito Fraca"
+                        securityIndicatorBar.className="bar veryCritical"
+                        passwordLevel.className="password-level-veryCritical"
+                    }
+                    else if ((passwordLenght >= 11 && passwordLenght <= 25 && upperCasePassword.checked && (numberPassword.checked == false) && (symbolPassword.checked == false))){ // Apenas com letra minúsculas e maiúsculas com 11 a 25 caracteres
+                        passwordLevel.innerText="Fraca"
+                        securityIndicatorBar.className="bar critical"
+                        passwordLevel.className="password-level-critical"
+                    }
+                    else if ((passwordLenght >= 26 && passwordLenght <= 48 && upperCasePassword.checked && (numberPassword.checked == false) && (symbolPassword.checked == false))){ // Apenas com letra minúsculas e maiúsculas com 26 a 45 caracteres
+                        passwordLevel.innerText="Força Média"
+                        securityIndicatorBar.className="bar medium"
+                        passwordLevel.className="password-level-medium"
+                    }
+                    else if ((passwordLenght <= 10 && (upperCasePassword.checked == false) && numberPassword.checked && (symbolPassword.checked == false))){ // Apenas com letra minúsculas e números                 
+                        passwordLevel.innerText="Fraca"
+                        securityIndicatorBar.className="bar critical"
+                        passwordLevel.className="password-level-critical"
+                    }
+                    else if ((passwordLenght >= 11 && passwordLenght <= 48 && upperCasePassword.checked == false && numberPassword.checked && (symbolPassword.checked == false))){ // Apenas com letra minúsculas e maiúsculas com 11 a 25 caracteres
+                        passwordLevel.innerText="Força Média"
+                        securityIndicatorBar.className="bar medium"
+                        passwordLevel.className="password-level-medium"
+                    }
+                    else if ((passwordLenght <= 10 && (upperCasePassword.checked == false) && (numberPassword.checked == false) && symbolPassword.checked)){ // Apenas com letra minúsculas e symbolos               
+                        passwordLevel.innerText="Força Média"
+                        securityIndicatorBar.className="bar medium"
+                        passwordLevel.className="password-level-medium"
+                    }
+                    else if ((passwordLenght >= 11 && passwordLenght <= 48 && (upperCasePassword.checked == false) && (numberPassword.checked == false) && (symbolPassword.checked))){ // Apenas com letra minúsculas e maiúsculas com 11 a 25 caracteres
+                        passwordLevel.innerText="Forte"
+                        securityIndicatorBar.className="bar safe"
+                        passwordLevel.className="password-level-safe"
+                    }
+                    //Fim bloco de senhas com 10 ou menos caracter e com nenhum ou um filtro
+
+                    //Bloco com dois filtros marcados e de 11 a 25 caracteres
+                    if ((passwordLenght > 10 && passwordLenght <= 25 && upperCasePassword.checked && numberPassword.checked && (symbolPassword.checked==false))){ // Apenas com letra minúsculas, maiúsculas e números
+                        passwordLevel.innerText="Força Média"
+                        securityIndicatorBar.className="bar medium"
+                        passwordLevel.className="password-level-medium"
+                    }
+                    else if ((passwordLenght > 10 && passwordLenght <= 25 && upperCasePassword.checked && numberPassword.checked == false && symbolPassword.checked)){ // Apenas com letra minúsculas, maiúsculas e símbolos                 
+                        passwordLevel.innerText="Forte"
+                        securityIndicatorBar.className="bar safe"
+                        passwordLevel.className="password-level-safe"
+                    }
+                    else if ((passwordLenght > 10 && passwordLenght <= 25 && upperCasePassword.checked == false && numberPassword.checked && symbolPassword.checked)){ // Apenas com letra minúsculas, números e símbolos                 
+                        passwordLevel.innerText="Forte"
+                        securityIndicatorBar.className="bar safe"
+                        passwordLevel.className="password-level-safe"
+                    }
+                    //Fim bloco de senhas com 11 a 25 caracteres com dois filtros selecionados
+
+                    //Bloco com dois filtros marcados e de 26 a 45 caracteres
+                    else if ((passwordLenght > 25 && passwordLenght <= 48 && upperCasePassword.checked && numberPassword.checked && (symbolPassword.checked==false))){ // Apenas com letra minúsculas, maiúsculas e números
+                        passwordLevel.innerText="Forte"
+                        securityIndicatorBar.className="bar safe"
+                        passwordLevel.className="password-level-safe"
+                    }
+                    else if ((passwordLenght > 25 && passwordLenght <= 48 && upperCasePassword.checked && numberPassword.checked == false && symbolPassword.checked)){ // Apenas com letra minúsculas, maiúsculas e símbolos                 
+                        passwordLevel.innerText="Muito Forte"
+                        securityIndicatorBar.className="bar verySafe"
+                        passwordLevel.className="password-level-verySafe"
+                    }
+                    else if (( passwordLenght > 25 && passwordLenght <= 48 && upperCasePassword.checked == false && numberPassword.checked && symbolPassword.checked)){ // Apenas com letra minúsculas, números e símbolos                 
+                        passwordLevel.innerText="Forte"
+                        securityIndicatorBar.className="bar safe"
+                        passwordLevel.className="password-level-safe"
+                    }
+                    //Fim bloco de senhas com 26 a 45 caracteres com dois filtros selecionados
+
+                    //Último bloco de filtro de senhas - bloco com todos filtros selecionados
+                    else if ((passwordLenght <=10 && upperCasePassword.checked && numberPassword.checked && symbolPassword.checked)){ // Apenas com letra minúsculas, números e símbolos                 
+                        passwordLevel.innerText="Forte"
+                        securityIndicatorBar.className="bar safe"
+                        passwordLevel.className="password-level-safe"
+                    }
+                    else if (( passwordLenght >=11 && passwordLenght <= 48 && upperCasePassword.checked && numberPassword.checked && symbolPassword.checked)){ // Apenas com letra minúsculas, números e símbolos                 
+                        passwordLevel.innerText="Muito Forte"
+                        securityIndicatorBar.className="bar verySafe"
+                        passwordLevel.className="password-level-verySafe"
+                    }              
+   
+            }
+
+
+            //A variável "passwordLenghtEl" passa o tamanho máximo e mínimo da senha, aumentando a quantidade de caracteres.
+            const passwordLenghtEl=document.getElementById("id-password-lenght")
+            passwordLenghtEl.addEventListener("input", function(){
+            passwordLenght=passwordLenghtEl.value
+            
+            //Mudar os dígitos do lebal "Tamanho"
+            let contTamanho=document.querySelector("#password-lenght-text")
+            contTamanho.innerText=passwordLenght
+
+            generatePassword()
+            })
+            //Action da alteração da senha ao selecionar ou deselecionar um dos 3 checkbox
+            upperCasePassword.addEventListener('click',generatePassword)
+            numberPassword.addEventListener('click',generatePassword)
+            symbolPassword .addEventListener('click',generatePassword)
+            generatePassword()
+            //Action do botão copiar
+                    
+            //Fuction que copia o texto(senha) do campo "A sua nova senha"
+            function copy(){
+            navigator.clipboard.writeText(inputEl.value)
+            }
+            const copyButtonEl=document.querySelector("#id-button-copy-password")
+            copyButtonEl.addEventListener('click', copy)
+        </script>
+    </body>
+</html>

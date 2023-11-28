@@ -1,0 +1,493 @@
+@import url(reset.css);
+@import url(assets/fonts/fonts.css);
+
+body{
+    background-color: #f8fafd;
+    font-family: 'Inter', sans-serif;
+    color: #252525;
+    padding: 2rem;
+}
+
+main{
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+.hero{
+    text-align: center;
+    padding-bottom: 3rem;
+}
+
+.hero .title{
+    font-size: 3rem;
+    padding-bottom:  1.5rem;
+}
+
+.hero .subTitle{
+    font-size: 1.125rem;
+    color: #828282;
+}
+
+.box{
+    background-color: rgb(240, 241, 241);
+    box-shadow: 2px 2.5px 5px;
+    margin-bottom: 2rem;
+    border-radius: 5px;
+}
+
+.box .password{
+    display: flex;
+}
+
+.box .password .text{
+    flex: 1;
+}
+
+.box .password .text .title-fields-login{
+    margin: 5px 5px 3px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.75rem;
+    color:burlywood;
+    text-shadow: 1px 0.5px 2px black;
+}
+
+.box .password .text input {
+    font-family: "Inconsolata-500", serif;
+    font-size: 2.6rem;
+    border: none;
+    outline: none;
+    cursor: default;
+    height: 50px;
+    width: 100%;
+    transition: all 0.22s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.box .password .text input.fontSize-x{
+    font-size: 2.2rem;
+} 
+
+.box .password .text input.fontSize-m{
+    font-size: 1.8rem;
+} 
+
+.box .password .text input.fontSize-s{
+    font-size: 1.5rem;
+}
+
+.box .password .action{
+    margin-bottom: 3px;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: auto;
+}
+
+.box .action button{
+    align-items: center;
+    border: none;    
+}
+
+.box .action button .senha{
+    background-color: transparent;
+    border:none;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+    height: 40px;
+}
+
+.box .securyt-indicator{
+    height: 10px;
+    width: 100%;
+    background-color: rgba(153, 156, 153, 0.467);
+    border-bottom-left-radius: 3.455px;
+    border-bottom-right-radius: 3.455px;
+    border-top-left-radius: 2.2px;
+    border-top-right-radius: 2.2px;
+   
+}
+
+.box .securyt-indicator .bar{
+    height: 10px;
+    border-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    transition: all 0.2s;
+    
+}
+
+.box .securyt-indicator .bar.completed{
+    border-top-right-radius: 0;
+}
+
+.box .securyt-indicator .bar.veryCritical{
+    background-color: red;
+}
+
+.box .securyt-indicator .bar.critical{
+    background-color: #eb5757;
+}
+
+.box .securyt-indicator .bar.medium{
+    background-color: #f2c94c;
+}
+
+.box .securyt-indicator .bar.safe{
+    background-color: #27ae60;
+}
+
+.box .securyt-indicator .bar.verySafe{
+    background-color: #00903c;
+}
+
+.box.customize .title-fields-login{
+    margin: 5px 5px 3px;
+    border-bottom: 2px solid rgb(162, 152, 152) ;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.75rem;
+    color:burlywood;
+    text-shadow: 1px 0.5px 2px black;
+    margin-bottom: 1rem;
+    padding-bottom: 0.275rem; 
+}
+
+.box.customize .actions{
+    display: flex;
+    gap: 3rem;
+    color: rgb(113, 110, 110)
+}
+
+.box.customize .actions .password-lenght{
+    flex: 1;
+    font-size: 22px;
+    font-family: "Inconsolata-500";
+    font-weight: 600;
+    color:#9b51e0
+}
+
+.box.customize .actions .password-lenght .password-level{
+    color: #f2c94c;
+    font-weight: 500;
+    text-shadow: 1px 1px 1px black
+}
+
+.box.customize .actions .password-lenght .password-level-veryCritical{
+    color: red;
+    font-weight: 800;
+    text-shadow: 1px 1px 1px black
+}
+
+
+.box.customize .actions .password-lenght .password-level-critical{
+    color: #eb5757;
+    font-weight: 400;
+    text-shadow: 1px 1px 1px black
+}
+
+.box.customize .actions .password-lenght .password-level-medium{
+    color: #f2c94c;
+    font-weight: 500;
+    text-shadow: 1px 1px 1px black
+}
+
+.box.customize .actions .password-lenght .password-level-safe{
+    color: #27ae60;
+    font-weight: 600;
+    text-shadow: 1px 1px 1px black
+}
+
+.box.customize .actions .password-lenght .password-level-verySafe{
+    color: #00903c;
+    font-weight: 800;
+    text-shadow: 1px 1px 1px black
+}
+
+.box.customize .actions .password-lenght .slider{
+    appearance: none;
+    height: 10PX;
+    -webkit-appearance: none;
+    background: #dddddd;
+    outline: none;
+    border-radius: 8PX;
+    width: 100%;
+    opacity: 0.8;
+    transition: opacity 0.22s;
+    margin: 1rem;
+}
+
+.box.customize .actions .password-lenght .slider:hover{
+    opacity: 1;
+}
+.box.customize .actions .password-lenght .slider::-webkit-slider-thumb{
+    -webkit-appearance: none ;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    background: #9b51e0;
+    cursor: pointer;
+}
+
+.box.customize .actions .password-lenght .slider::-moz-range-thumb{
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    background: #9b51e0;
+    cursor: pointer;
+}
+
+
+.box.customize .actions .config .checkbox{
+    display: block;
+    position: relative;
+    padding-right: 2rem;
+    padding-bottom: 1rem;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select:  none; 
+    padding-left: 25px;
+}
+
+/*prorpiedade cirada para esconder os inputs checkbox */
+.box.customize .actions .config .checkbox input{
+    height: 0;
+    width: 0;    
+}
+
+/*fundo criado dentro do próprio quadro de checkbox para pegar os efeitos de quando checado e quando não*/
+.box.customize .actions .config .checkbox .checkmark{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: #dddddd;
+    /*propriedade que gera efeito de transição de camadas ao serem removida ou inseridas*/
+    transition: all 0.5s;
+}
+
+/*.box.customize .actions .config .checkbo input ~ .checkmark{
+    background-color: red;
+}*/
+
+/*efeito de preencher a caixa dos chekckbox com o fundo roxo. O ~ identifica se o checke=true*/
+.box.customize .actions .config .checkbox input:checked ~ .checkmark{
+    background-color: #9b51e0;
+}
+
+/*efeito do visto de checado o checkbox*/
+.box.customize .actions .config .checkbox .checkmark::after{
+    content:"";
+    display: none;
+    position: absolute;
+    left: 7px;
+    top: 4px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+.box.customize .actions .config .checkbox input:checked ~ .checkmark::after{
+    display: block;
+}
+
+.submit{
+    text-align: center;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Estilização do botão "Copiar Senha" */
+.submit button{
+    width: 150px;
+    height: 45px;
+    font-family: "Inconsolata-500";
+    font-size: 1.37rem;
+    font-weight: 400;
+    border: none;
+    border-radius: 4px;
+    background-color: #9b51e0;
+    color: aliceblue;
+}
+
+.submit button:hover{
+    cursor: pointer;
+    background-color: #6513b1;
+}
+
+.submit button:active{
+    font-weight: 600;
+    background-color: #46097e;
+}
+
+/*Daqui para baixo é só  media query*/
+/* =============================================*/
+
+@media only screen and (max-width: 320px){
+
+.hero{
+        text-align: center;
+        padding-bottom: 2rem;
+}
+
+.hero .title{
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.hero .subTitle{
+    font-size: 0.88rem;
+    color: #828282;
+}
+
+.box{
+    background-color: rgb(240, 241, 241);
+    box-shadow: 2px 2.5px 5px;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
+.box .password .text .title-fields-login{
+
+    margin: 3px 5px 3px;
+    font-size: 1rem;
+}
+
+.box.customize .title-fields-login{
+    margin-top: 1.5px;
+    margin: 3px 5px 3px;
+    font-size: 1rem;
+}
+
+.box .password .text input {
+    font-family: "Inconsolata-500", serif;
+    font-size: 1.4rem;
+    border: none;
+    outline: none;
+    cursor: default;
+    height: 25px;
+    transition: all 0.22s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-bottom: 0.5px;
+}
+
+.box .password .text input.fontSize-x{
+    font-size: 1.5rem;
+} 
+
+.box .password .text input.fontSize-m{
+    font-size: 1.25rem;
+} 
+
+.box .password .text input.fontSize-s{
+    font-size: 0.6rem;
+}
+
+.box .password .action{
+    margin-top: auto;
+    height: 100%;
+    border:none;
+    outline: none;
+    display: flex;
+    
+}
+.box .action button{
+    margin-bottom: -2px;
+    border:none;
+    outline: none;
+    flex:1;
+}
+.box .password .action button .senha{
+   height:20px;
+   width: 15px;
+   margin-bottom: -2px;
+   border:none;
+   outline: none;
+}
+
+.box.customize .actions{
+   gap: 2.3rem;
+}
+
+.box.customize .actions .password-lenght .parag-2{
+
+    margin-bottom: 4px;
+    margin-top: -2px;
+}
+
+.box.customize .actions .password-lenght{
+    font-size: 15px;
+    margin-top: -2px;
+}
+
+.box.customize .actions .password-lenght .slider{
+    height: 5PX;
+}
+
+.box.customize .actions .password-lenght .slider:hover{
+    opacity: 1;
+}
+.box.customize .actions .password-lenght .slider::-webkit-slider-thumb{
+    -webkit-appearance: none ;
+    appearance: none;
+    width:14px;
+    height: 14px;
+    border-radius: 14px;
+    background: #9b51e0;
+    cursor: pointer;
+}
+
+.box.customize .actions .password-lenght .slider::-moz-range-thumb{
+    width: 16px;
+    height: 16px;
+    border-radius: 16px;
+}
+
+.box.customize .actions .config .checkbox{
+    font-size: 12px;
+    padding-right: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 15px;
+}
+
+.box.customize .actions .config .checkbox .checkmark{
+    height: 12px;
+    width: 12px;
+    margin-top: 2px;
+}
+
+.box.customize .actions .config .checkbox .checkmark::after{
+    left: 3px;
+    top: 1.5px;
+    width: 5px;
+    height: 7px;
+    border-width: 0 2px 2px 0;
+}
+
+.box .securyt-indicator{
+    height: 5px;  
+}
+
+.box .securyt-indicator .bar{
+    height: 5px;    
+}
+
+.submit button{
+    width: 120px;
+    height: 35px;
+ 
+    font-size: 1rem
+}
+}

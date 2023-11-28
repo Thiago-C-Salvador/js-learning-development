@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+main{
+    width: 14%;
+    margin: auto;
+    margin-top: 20px;
+    border: 5px solid rgb(93, 26, 26);
+    border-radius: 5px;
+    background-color: black;    
+}
+
+#id_title{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(78, 19, 19);
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px rgb(0, 0, 0);
+}
+
+.parte-superior{
+    width: 100%;
+    min-height: 120px;
+    display: flex;
+    flex-direction: row;
+}
+
+.parte-superior .campos{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    background-color: rgb(0, 0, 0);
+}
+
+.parte-superior .campos .label-input{
+    font-size: 15;
+    font-family: 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+#id_align-box{
+    width: 40%;
+    text-align: center;
+    background-color:  rgb(0, 0, 0);
+}
+
+.div-main .parte-superior #id_align-box .calcular{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50%;
+    color: white;
+    font-size: 20px;
+}
+
+
+main .div-resultado{
+    margin-top: -5px;
+    margin-bottom: 5px;;
+}
+
+main .div-resultado #id_resultado{
+    color: white;
+    font-weight: 600;
+    margin-left: 15px;
+}
+    
+.div-main .parte-superior .campos input{
+    width: 110px ;
+    margin-bottom: 8px;
+    border-radius: 3px;
+    font-size: 20px;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.teclado .teclas{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    margin: 4px;
+    font-size: 30px;
+    
+}
+
+.teclado .teclas .linha, .number, .sinal, .aux{
+    border: 2px solid red;
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.teclado .teclas .linha:hover, .number:hover, .sinal:hover{
+    background-color: darkgrey;
+}
+
+.teclado .teclas .linha:active, .number:active, .sinal:active{
+    background-color: rgb(67, 64, 64); 
+}
+
+#id_symbol{
+    height: 20px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+#id_name-symbol{
+    margin-top: 3px;
+    font-size: 16px;
+}
+
+/*ocultar a scroll do input type=number
+/*Chrome e outros*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

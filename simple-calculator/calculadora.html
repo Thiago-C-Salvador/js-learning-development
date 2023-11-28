@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width initial-scale=1.0"/>
+        <title>CALCULADORA</title>
+        <link rel="stylesheet" href="css/style.css"/>
+    </head>
+    <body>
+        <main>
+            <div id="id_title"><h1>Calculadora</h1></div>
+            <div id="id_container" class="div-main">
+                <!-- Início do visor dos calcúlos-->
+                <div id="id_dados-expressão" class="parte-superior">
+                    <div id="id_fields-input" class="campos">
+                        <label for="id_aritimetica1" class="label-input">Entrada Valor</label>
+                        <input type="text" onkeypress="return fieldManipule(event)"  id="id_aritimetica1" class="valor">
+                        <label for="id_aritimetica2" class="label-input">Entrada Valor</label>
+                        <input type="text" onkeypress="return fieldManipule(event)" id="id_aritimetica2" class="valor">
+                    </div>
+                    <!--Box para mostrar a operação a ser realizada-->
+                    <div id="id_align-box">
+                        <div id="id_expressão" class="calcular">
+                            <lable id="id_symbol"></lable>
+                            <label id="id_name-symbol">Operação</label>
+                        </div>
+                    </div>
+                    <!--Fim do box mostra operação-->
+                </div>
+                <div class="div-resultado">
+                    <label id="id_resultado">Resultado:</label>
+                </div>
+                <!--Fim do visor dos calcúlos-->
+
+                <!-- Início teclado -->
+                <div id="id_linha1" class="teclado">
+                    <div id="id_campos" class="teclas">
+                        <input type="button" class="linha" id="id_tecla-AC" value="AC">
+                        <input type="button" class="aux" value="( )">
+                        <input type="button" class="sinal" value="%">
+                        <input type="button" class="sinal" value="/">
+                    </div>
+
+                    <div id="id_linha2" class="telcado">
+                        <div id="id_campos" class="teclas">
+                            <input type="button" class="number" value="7">
+                            <input type="button" class="number" value="8">
+                            <input type="button" class="number" value="9">
+                            <input type="button" class="sinal" value="x">
+                        </div>
+                    </div>
+
+                    <div id="id_linha3" class="telcado">
+                        <div id="id_campos" class="teclas">
+                            <input type="button" class="number" value="4">
+                            <input type="button" class="number" value="5">
+                            <input type="button" class="number" value="6">
+                            <input type="button" class="sinal" value="-">
+                        </div>
+                    </div>
+
+                    <div id="id_linha4" class="telcado">
+                        <div id="id_campos" class="teclas">
+                            <input type="button" class="number" value="1">
+                            <input type="button" class="number" value="2">
+                            <input type="button" class="number" value="3">
+                            <input type="button" class="sinal" value="+">
+                        </div>
+                    </div>
+
+                    <div id="id_linha5" class="telcado">
+                        <div id="id_campos" class="teclas">
+                            <input type="button" class="number" value="0">
+                            <input type="button" class="number" value=",">
+                            <input type="button" class="linha" id="id_back-Space" value="<=">
+                            <input type="button" class="linha" id="id_symbol-iqual" value="=">
+                        </div>
+                    </div>
+                </div>  
+                <!--Fim área do teclado-->
+            </div>
+        </main>
+        <script src="fileJS.js"></script>
+    </body>
+    <footer>
+
+    </footer>
+</html>
