@@ -136,7 +136,7 @@
             function continueApp(keyWord){
                  //console.log(keyWord)
                 inputEl.value=keyWord
-                levelSafety()
+                //levelSafety()
                 CalculatePercent()
                 calculateFontSize() 
             }
@@ -232,7 +232,7 @@
 
                 securityIndicatorBar.style.width = `${percent}%`
                 //Operação condicional abiaxo faz o mesmo trabalho da FUNCTION 'leveSafety' de uma forma mais simples
-             /*   if(percent >= 80){
+               if(percent >= 80){
                     securityIndicatorBar.classList.remove("veryCritical")
                     securityIndicatorBar.classList.remove("critical")
                     securityIndicatorBar.classList.remove("medium")
@@ -272,7 +272,7 @@
                     securityIndicatorBar.classList.remove("verySafe")
                     document.querySelector("#password-level").innerText = "Muito Fraca"
                     document.querySelector("#password-level").className="password-level-veryCritical"
-                }//Fim da operações condicional*/
+                }//Fim da operações condicional
 
                 //condição para verificar se a barra abaixo do campo "senha" vai ou nção receber a propriedade CSS que dá o efeito e  evita o transbordo do elemento ao qual ele é filho.
                 if(percent >=100){
@@ -308,7 +308,7 @@
                 }
             
             //Função responsável por randomicamente alterar e informar o nível de  segurança da senha   
-            function levelSafety(){
+           /* function levelSafety(){
                     //Bloco com nenhum ou apenas um dos filtros marcados com 10 ou menos caracteres
                     if ((passwordLenght <= 10 && (upperCasePassword.checked == false) && (numberPassword.checked == false) && (symbolPassword.checked == false))){ // Apenas com letra minúsculas e no máximo 10 caracteres
                         passwordLevel.innerText="Muito Fraca"
@@ -405,7 +405,7 @@
                         passwordLevel.className="password-level-verySafe"
                     }              
    
-            }
+            }*/
 
 
             //A variável "passwordLenghtEl" passa o tamanho máximo e mínimo da senha, aumentando a quantidade de caracteres.
