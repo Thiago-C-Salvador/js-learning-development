@@ -118,7 +118,7 @@ const operacao=[
 
 //Função para trartar a conversão da "," para "." - pois o ponto é o separador de decimais que o computador entende
 const convertionPont=(valor)=>{
-    return changer=valor.replace(/,/i,".")
+    return changer=valor.replace(/,/g,".")
     }
 
 //Função/método para arredondar e imprimi, o resultado com no máximo até 3 casas decimais após a vírgula e caso for zero, ignorá-los 
@@ -207,56 +207,4 @@ resultado.addEventListener("click",()=>{
         document.querySelector("#id_resultado").innerHTML= `Resultado: ${(operacao[ind]())}`
 
     }
-    //abaixo está o método apra os calculos sem o uso da função "operacao"
-    // let cal=0
-    //   if (symbolOperador.innerHTML === "+"){
-    //     for(const input of inputs){
-    //       cal+=(parseFloat(input.value))
-    //     }
-    //     document.querySelector("#id_resultado").innerHTML=`Resultado: ${cal}`   
-    //   }
-
-    //   else if (symbolOperador.innerHTML === "-"){
-    //     for(const input of inputs){
-    //         if(input.id==="id_aritimetica1"){
-    //             cal=(parseFloat(input.value))
-    //         }else if(input.id!=="id_aritimetica1"){
-    //             cal-=(parseFloat(input.value))
-    //         }
-    //     }
-    //     document.querySelector("#id_resultado").innerHTML=`Resultado: ${cal}`   
-    //   }
-
-    //   else if (symbolOperador.innerHTML === "/"){
-    //     for(const input of inputs){
-    //         if(input.id==="id_aritimetica1"){
-    //             cal=(parseFloat(input.value))
-    //         }else if(input.id!=="id_aritimetica1"){
-    //             cal/=(parseFloat(input.value))
-    //         }
-    //     }
-    //     document.querySelector("#id_resultado").innerHTML=`Resultado: ${cal}`   
-    //   }
-
-    //     else if (symbolOperador.innerHTML === "x"){
-    //     for(const input of inputs){
-    //         if(input.id==="id_aritimetica1"){
-    //             cal=(parseFloat(input.value))
-    //         }else if(input.id!=="id_aritimetica1"){
-    //             cal*=(parseFloat(input.value))
-    //         }
-    //     }
-    //     document.querySelector("#id_resultado").innerHTML=`Resultado: ${cal}` 
-    //   }
-
-    //     else if (symbolOperador.innerHTML === "%"){
-    //     for(const input of inputs){
-    //         if(input.id==="id_aritimetica1"){
-    //             cal=(parseFloat(input.value))/100
-    //         }else if(input.id!=="id_aritimetica1"){
-    //             cal*=(parseFloat(input.value))
-    //         }
-    //     }
-    //     document.querySelector("#id_resultado").innerHTML=`Resultado: ${cal}`   
-    //   }
 })
