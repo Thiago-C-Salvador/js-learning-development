@@ -28,9 +28,9 @@ class Belicos{
     }
 
     getPreco=function(){
+        
         return this.price
     }
-
     getPassageiros=function(){
         if(this.passenger===undefined){
             return this.passenger   ="-----"
@@ -114,7 +114,8 @@ price.addEventListener("blur",()=>{
     if(price.value < 0.01){
         Number(price.value="0.00")
     }else{
-        price.value=Number(price.value).toFixed(2)   
+        useGrouping: true
+        price.value=Number(price.value).toFixed(2)
     }
 })
 //fim tratamento do campo(input) Preço/valor
@@ -274,17 +275,19 @@ btnLancar.addEventListener("click",(evt)=>{
 
 //evento para remover todos lançamentos em um clique
 removeAll.addEventListener("click",()=>{
-    let=0
-    const elemento = document.querySelectorAll(".launchs")
-        if(!(datasVeiculo.length-1>=0)){
-            //alert("Não existe registros lançado")
-        }else{
-            //alert("Tem registro, meu chegado")
-            while((datasVeiculo.length-1 > -1)){
-                datasVeiculo.splice(0,1)
-            }
-            insertVeiculo()
-        }
+    // const elemento = document.querySelectorAll(".launchs")
+    //     if(!(datasVeiculo.length-1>=0)){
+    //         //alert("Não existe registros lançado")
+    //     }else{
+    //         //alert("Tem registro, meu chegado")
+    //         while((datasVeiculo.length-1 > -1)){
+    //             datasVeiculo.splice(0,1)
+    //         }
+    while((datasVeiculo.length > 0)){
+            datasVeiculo.splice(0,1)
+    }
+    insertVeiculo()
+      //  }
 })
 
 //função para deletar um registro lançado
