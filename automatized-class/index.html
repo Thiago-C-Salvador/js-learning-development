@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Animação Bolinhas</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+    <body>
+        <div class="container grid-area">
+            <div id="id_controle" class="controles">
+                    <div class="controle">
+                        <label>Número de bolas</label>
+                        <p id="id_numeros-bolas">0</p>
+                        <div></div>
+                    </div>
+                    
+                    <div class="controle">
+                        <label>Quantidade de bolas novas</label>
+                        <input type="number" min="0" value="0" id="id_inputNovaBolas">
+                        <div></div>
+                        <button id="id_btn-add">Adicionar</button>
+                     
+                    </div>
+                    <div class="controle">
+                        <button id="id_btn-remover">Remover Todos</button>
+                    </div>
+            </div>
+            <div class="div-animacao">
+                <div id="id_area-animacao" class="area-animacao"></div>
+             </div>
+        </div>
+        <script src="fileJS.js"></script>
+    </body>
+</html>
