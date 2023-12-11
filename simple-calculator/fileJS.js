@@ -128,7 +128,7 @@ function roundNumber(number){
         maximumFractionDigits: 3,
         useGrouping: true //faz com que seja usado o separador de milhares. Por default o valor é 'true', mas coloquei para explícito
     };
-    return number.toLocaleString('pt-BR', opcoes );//método "toLocaleString" converte/formata o resultado para o padrão brasileiro. Sendo assim, ao invés de o resultado sair 14.294(com ponto ao invés de vírgula - padrão americano e também do "mundo' da programação), no caso sai 14,294 (padrão brasileiro de separação de desenas)
+    return number.toLocaleString('pt-BR',opcoes);//método "toLocaleString" converte/formata o resultado para o padrão brasileiro. Sendo assim, ao invés de o resultado sair 14.294(com ponto ao invés de vírgula - padrão americano e também do "mundo' da programação), no caso sai 14,294 (padrão brasileiro de separação de desenas)
 }
 
 //evento que pecorrer todos os números do teclado e que, através do evento click, recebe o valor referente à tecla clicada

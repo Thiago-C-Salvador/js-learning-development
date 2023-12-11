@@ -29,7 +29,7 @@ class Belicos{
 
     getPreco=function(){
         
-        return this.price
+        return Number(this.price).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})
     }
     getPassageiros=function(){
         if(this.passenger===undefined){
@@ -112,10 +112,9 @@ price.addEventListener("focus",()=>{
 })
 price.addEventListener("blur",()=>{
     if(price.value < 0.01){
-        Number(price.value="0.00")
+       price.value="0.00"
     }else{
-        useGrouping: true
-        price.value=Number(price.value).toFixed(2)
+        price.valu=Number(price.value).toFixed(2)
     }
 })
 //fim tratamento do campo(input) Preço/valor
@@ -330,7 +329,7 @@ function insertVeiculo(){
         datas.innerHTML+=`Motor: ${element.getMotor()}<br/>`
         datas.innerHTML+=`Portas: ${element.getPortas()}<br/>`
         datas.innerHTML+=`Blindado: ${element.getBlindado()}<br/>`
-        datas.innerHTML+=`Valor: R$${element.getPreco()}`
+        datas.innerHTML+=`Valor: ${element.getPreco()}`
         
         datas.appendChild(btnRemove)
         registerCars.appendChild(datas)
@@ -360,9 +359,9 @@ const mandatoryFields=()=>{
                 alert("Há campos a serem preenchidos")
             }else{
                 veiculo = new Belicos(capchureRadioType(),templateCar.value,fabricanteCar.value,colorCar.value,fieldBlindado.value, priceCar.value)
-                veiculo.setMotor("*******")
+                veiculo.setMotor("-----")
                 datasVeiculo.push(veiculo)  
-                insertVeiculo() 
+                insertVeiculo()
             }
     }else if(capchureRadioMotor()===undefined){
             alert("Potência do motor não informado")
